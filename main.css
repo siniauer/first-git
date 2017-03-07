@@ -1,0 +1,274 @@
+/*
+This is a good layout for a mobile-first CSS template.
+Following this flow will minimize the number of styles you need to write and will ensure you are thinking, designing and developing mobile-first.
+Most of your styles get written like standard CSS, but for your mobile presentation. Generally speaking, a good mobile presention will stretch out nicely for larger screens.
+Sometimes, when we stretch out to larger screens, we need to make minor tweaks for the larger devices -- you can make these tweaks in the tablet media query, or if the issue exists on desktop only, the desktop media query.
+You will find this is far easier than the opposite task of using CSS to cram your desktop experience into a mobile device.
+*/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+v2.0 | 20110126
+License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1.2;
+}
+
+
+/* Start your base/mobile styles here */
+
+html, body {
+    font-size: 16px;
+    font-family: 'Arsenal', sans-serif;
+    /*  Sets default font-size to 16px, ensuring 1em = 16px; */
+}
+
+img {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.lede, h1 {
+    margin: 10px;
+    padding: 10px;
+    font-size: 1.1em;
+}
+
+.byline {
+    font-family: 'Arsenal', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    margin-top: -20px;
+}
+
+.gray {
+    color: #808080;
+    background: none;
+}
+
+.main-text {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.caption {
+    color: gray;
+    font-size: 1em;
+    margin-left: 10px;
+}
+
+.credit {
+    font-weight: 400;
+}
+
+.sources {
+    font-size: 14px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 115px;
+    background-color: rgba(112, 128, 144, 0.7);
+    border: solid white;
+    opacity: .75;
+    z-index: 3;
+    display: block;
+}
+
+.photo-container {
+    width: 100%;
+    position: relative;
+    /*z-index: 1;*/
+}
+
+.info_slides {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.66);
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    opacity: 0;
+    z-index: 0;
+    /* While dial the z-index down because even if an element doesn't have opacity it still has 'mass'. The info window would get in the way of clicking on the circles without this */
+    transition: opacity .5s ease-in-out;
+    /* this gives us the fade in and fade out effect but only on the opacity element. You cannot use the display property with transitions. */
+}
+
+.info_slides.active {
+    z-index: 4;
+    /* We give the info_slides a higher z-index on active */
+    opacity: 1;
+}
+
+.btn_close {
+    position: absolute;
+    font-family: sans-serif;
+    top: 5%;
+    left: 92%;
+    font-size: 1.2em;
+    color: black;
+    z-index: 4;
+    font-weight: 900;
+}
+
+h1 {
+    padding-bottom: 10px;
+    font-size: 2.1em;
+}
+
+a {
+    text-decoration: none;
+    color: #0099cc;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #808080
+}
+
+.decoration {
+    background-color: #F0F0F0;
+    height: 15px;
+}
+
+.info_popIn {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 50px 15px 30px 15px;
+    font-size: 1.6em;
+    text-align: center;
+    color: black;
+    height: 100%;
+}
+
+#circle_tofu1 {
+    position: absolute;
+    top: 23%;
+    /* Must be in percentage or will move on different devices*/
+    left: 85%;
+    /* Must be in percentage or will move on different devices*/
+    -webkit-transition: opacity 5s ease-in;
+    -moz-transition: opacity 5s ease-in;
+    -o-transition: opacity 5s ease-in;
+    transition: opacity 5s ease-in;
+}
+
+#circle_tofu2 {
+    position: absolute;
+    top: 65%;
+    /* Must be in percentage or will move on different devices*/
+    left: 85%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+#circle_tofu3 {
+    position: absolute;
+    top: 62%;
+    /* Must be in percentage or will move on different devices*/
+    left: 40%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+#circle_menu1 {
+    position: absolute;
+    top: 25%;
+    /* Must be in percentage or will move on different devices*/
+    left: 65%;
+    /* Must be in percentage or will move on different devices*/
+    -webkit-transition: opacity 5s ease-in;
+    -moz-transition: opacity 5s ease-in;
+    -o-transition: opacity 5s ease-in;
+    transition: opacity 5s ease-in;
+}
+
+#circle_menu2 {
+    position: absolute;
+    top: 40%;
+    /* Must be in percentage or will move on different devices*/
+    left: 20%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+#circle_menu3 {
+    position: absolute;
+    top: 75%;
+    /* Must be in percentage or will move on different devices*/
+    left: 60%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+#circle_burger1 {
+    position: absolute;
+    top: 58%;
+    /* Must be in percentage or will move on different devices*/
+    left: 47%;
+    /* Must be in percentage or will move on different devices*/
+    -webkit-transition: opacity 5s ease-in;
+    -moz-transition: opacity 5s ease-in;
+    -o-transition: opacity 5s ease-in;
+    transition: opacity 5s ease-in;
+}
+
+#circle_burger2 {
+    position: absolute;
+    top: 75%;
+    /* Must be in percentage or will move on different devices*/
+    left: 63%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+#circle_burger3 {
+    position: absolute;
+    top: 65%;
+    /* Must be in percentage or will move on different devices*/
+    left: 26%;
+    /* Must be in percentage or will move on different devices*/
+}
+
+
+/* Tablet/Desktop overrides */
+
+@media(min-width: 681px) {
+    /* Any adjustments for tablets and larger go here. Note these styles will be applied to anything 681px or larger -- so tablet AND desktop */
+}
+
+@media(min-width: 729px) {
+    /* Any adjustments for desktop and larger go here. Note these styles will be applied to anything 729px or larger -- so desktop */
+    .circle:hover {
+        background-color: grey;
+    }
+    #popIn {
+        font-size: 3em;
+        padding: 200px 15px 30px 15px;
+    }
+    .btn_close {
+        font-size: 3em;
+    }
+    .btn_close:hover {
+        color: black;
+    }
+}
+
+
+}
