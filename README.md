@@ -1,1 +1,1 @@
-# first-git
+Plants are the new bacon.
